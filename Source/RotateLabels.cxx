@@ -111,6 +111,7 @@ int main(int argc, char *argv[])
     std::cout << "Label Gaussian interpolator type...                     " << std::flush;
     typedef itk::LabelImageGaussianInterpolateImageFunction<ImageType,double> LGInterpolatorType;
     LGInterpolatorType::Pointer lg_interp = LGInterpolatorType::New();
+    lg_interp->SetSigma(0.3);
     RotateNTimes<ImageType>(r->GetOutput(), lg_interp, number_of_rotations, "label_gaussian.mha");
 
     std::cout << "Generic label interpolator with nearest neighbor...     " << std::flush;

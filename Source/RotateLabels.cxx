@@ -12,6 +12,7 @@
 #include <itkImageFileWriter.h>
 #include <itkImageFileReader.h>
 #include <itkTestingComparisonImageFilter.h>
+#include <itkTimeProbe.h>
 
 #include "itkLabelImageGenericInterpolateImageFunction.h"
 #include "itkLabelSelectionAdaptor.h"
@@ -46,6 +47,7 @@ RotateNTimes(typename ImageType::Pointer input,
 	//interp->SetSigma(0.3); // Used for the gaussian interpolator
 	rs->SetInterpolator(interpolator);
 	typename ImageType::Pointer out ;
+  itk::TimeProbe timer; timer.Start();
 	for (unsigned i = 0; i<number_of_rotations; ++i) {
 		rs->SetReferenceImage( input );
 		rs->SetUseReferenceImage(true);
@@ -55,6 +57,7 @@ RotateNTimes(typename ImageType::Pointer input,
 		rs->SetInput(out);
 		rs->SetTransform(rot);
 	}
+  timer.Stop();
   typedef itk::Testing::ComparisonImageFilter<ImageType,ImageType> ComparisonFilterType;
   typename ComparisonFilterType::Pointer compare = ComparisonFilterType::New();
   compare->SetValidInput( input );
@@ -63,7 +66,7 @@ RotateNTimes(typename ImageType::Pointer input,
   std::cout << "Pixels with differences: " << std::setw(8) << compare->GetNumberOfPixelsWithDifferences() << 
     " ( " << std::fixed << std::setprecision(2) << static_cast<double>(compare->GetNumberOfPixelsWithDifferences()) /
     input->GetLargestPossibleRegion().GetNumberOfPixels() * 100.<< 
-    "% )" << std::endl;
+    "% ) in " << timer.GetTotal() << "s" << std::endl;
 	typedef  itk::ImageFileWriter< ImageType  > WriterType;
 	typename WriterType::Pointer writer = WriterType::New();
 	writer->SetUseCompression(true);

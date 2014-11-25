@@ -1,0 +1,19 @@
+Nearest neighbor interpolator...                        ,3,  86376,0.79%,0.90s
+Linear interpolator...                                  ,3, 629094,5.78%,1.11s
+Label Gaussian interpolator type...                     ,3,  70097,0.64%,34.84s
+Generic label interpolator with nearest neighbor...     ,3,  86376,0.79%,2.15s
+Generic label interpolator with linear interpolation... ,3,  65826,0.61%,4.17s
+Generic label interpolator with B-Spline...             ,3,  69088,0.64%,115.51s
+Nearest neighbor interpolator...                        ,5, 167969,1.54%,1.58s
+Linear interpolator...                                  ,5, 862401,7.93%,2.13s
+Label Gaussian interpolator type...                     ,5, 131776,1.21%,66.41s
+Generic label interpolator with nearest neighbor...     ,5, 167969,1.54%,3.49s
+Generic label interpolator with linear interpolation... ,5, 115469,1.06%,6.47s
+Generic label interpolator with B-Spline...             ,5, 124410,1.14%,185.55s
+Nearest neighbor interpolator...                        ,7, 208304,1.91%,1.73s
+Linear interpolator...                                  ,7, 996401,9.16%,2.82s
+Label Gaussian interpolator type...                     ,7, 163821,1.51%,88.70s
+Generic label interpolator with nearest neighbor...     ,7, 208304,1.91%,5.05s
+Generic label interpolator with linear interpolation... ,7, 148282,1.36%,9.89s
+Generic label interpolator with B-Spline...             ,7, 161522,1.48%,252.43s
+

@@ -1,5 +1,4 @@
-generic_label_interpolator
-==========================
+#A generic ITK interpolator for multi-label images.
 
 A generic ITK interpolator for multi-label images.
 

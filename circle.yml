@@ -1,0 +1,16 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker pull insighttoolkit/genericlabelinterpolator-test
+    - ~/GenericLabelInterpolator/test/Docker/build.sh
+
+test:
+  override:
+    - mkdir ~/GenericLabelInterpolator-build
+    - docker run -v ~/GenericLabelInterpolator:/usr/src/GenericLabelInterpolator -v ~/GenericLabelInterpolator-build:/usr/src/GenericLabelInterpolator-build insighttoolkit/genericlabelinterpolator-test /usr/src/GenericLabelInterpolator/test/Docker/test.sh
+
+

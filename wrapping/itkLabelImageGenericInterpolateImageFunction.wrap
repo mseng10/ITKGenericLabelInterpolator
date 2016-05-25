@@ -1,0 +1,21 @@
+itk_wrap_include( itkLabelImageGenericInterpolateImageFunction.h )
+itk_wrap_include( itkImage.h )
+itk_wrap_include( itkLinearInterpolateImageFunction.h )
+itk_wrap_include( itkNearestNeighborInterpolateImageFunction.h )
+#itk_wrap_include( itkLabelImageGaussianInterpolateImageFunction.h )
+itk_wrap_include( itkBSplineInterpolateImageFunction.h )
+
+itk_wrap_named_class("itk::LabelImageGenericInterpolateImageFunction" itkLabelImageGenericInterpolateImageFunction POINTER)
+ foreach(d ${ITK_WRAP_IMAGE_DIMS})
+    foreach(t ${WRAP_ITK_SCALAR})
+      # Linear Interpolate
+      itk_wrap_template("I${ITKM_${t}}${d}LIIF${ITKM_D}"  "itk::Image<${ITKT_${t}}, ${d}>, itk::LinearInterpolateImageFunction")
+      # Nearest Neighbor Interpolate
+      itk_wrap_template("I${ITKM_${t}}${d}NNIIF${ITKM_D}"  "itk::Image<${ITKT_${t}}, ${d}>, itk::NearestNeighborInterpolateImageFunction")
+      # Image Gaussian Interpolate
+      #itk_wrap_template("I${ITKM_${t}}${d}LIGIIF${ITKM_D}"  "itk::Image<${ITKT_${t}}, ${d}>, itk::LabelImageGaussianInterpolateImageFunction")
+      # BSpline Interpolate
+      #itk_wrap_template("I${ITKM_${t}}${d}BSIIF${ITKM_D}"  "itk::Image<${ITKT_${t}}, ${d}>, itk::BSplineInterpolateImageFunction")
+    endforeach()
+ endforeach()
+itk_end_wrap_class()

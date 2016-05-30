@@ -58,7 +58,7 @@ RotateNTimes(typename ImageType::Pointer input,
   center[2] = 101;
   TransformType::Pointer rot = TransformType::New();
   rot->SetCenter(center);
-  rot->SetRotation(axis,2.*M_PI/number_of_rotations);
+  rot->SetRotation(axis,2.*itk::Math::pi/number_of_rotations);
 
   typename ResampleFilterType::Pointer rs = ResampleFilterType::New();
   rs->SetInput( input );

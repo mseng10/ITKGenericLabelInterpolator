@@ -40,6 +40,8 @@ class ITK_EXPORT LabelSelectionImageAdaptor:public
                   TOutputPixelType >   >
 {
 public:
+  ITK_DISALLOW_COPY_AND_ASSIGN(LabelSelectionImageAdaptor);
+
   /** Standard class type alias. */
   using Self = LabelSelectionImageAdaptor;
   using Superclass = ImageAdaptor< TImage, Accessor::LabelSelectionPixelAccessor<
@@ -62,10 +64,6 @@ public:
 protected:
   LabelSelectionImageAdaptor() {}
   ~LabelSelectionImageAdaptor() override {}
-
-private:
-  LabelSelectionImageAdaptor(const Self &); //purposely not implemented
-  void operator=(const Self &);  //purposely not implemented
 };
 } // end namespace itk
 

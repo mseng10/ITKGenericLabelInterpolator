@@ -37,7 +37,7 @@ namespace itk
  * * \ingroup GenericLabelInterpolator
  */
 
-template <typename TInputImage,template<class, typename> class TInterpolator, typename TCoordRep=double >
+template <typename TInputImage,template<typename, typename> typename TInterpolator, typename TCoordRep=double >
 class ITK_EXPORT LabelImageGenericInterpolateImageFunction :
   public InterpolateImageFunction<TInputImage, TCoordRep>
 {
@@ -106,7 +106,7 @@ public:
 
 protected:
   LabelImageGenericInterpolateImageFunction();
-  ~LabelImageGenericInterpolateImageFunction() override{};
+  ~LabelImageGenericInterpolateImageFunction() override= default;
 
   std::vector<typename InternalInterpolatorType::Pointer>   m_InternalInterpolators;
   std::vector<typename LabelSelectionAdaptorType::Pointer>  m_LabelSelectionAdaptors;

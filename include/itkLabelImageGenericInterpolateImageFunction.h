@@ -37,7 +37,7 @@ namespace itk
  * * \ingroup GenericLabelInterpolator
  */
 
-template <typename TInputImage,template<class, typename> class TInterpolator, typename TCoordRep=double >
+template <typename TInputImage,template<typename, typename> typename TInterpolator, typename TCoordRep=double >
 class ITK_EXPORT LabelImageGenericInterpolateImageFunction :
   public InterpolateImageFunction<TInputImage, TCoordRep>
 {
@@ -72,6 +72,9 @@ public:
   /** Index type alias support. */
   using IndexType = typename Superclass::IndexType;
 
+  /** Size type alias support. */
+  using SizeType = typename Superclass::SizeType;
+
   /** ContinuousIndex type alias support. */
   using ContinuousIndexType = typename Superclass::ContinuousIndexType;
 
@@ -91,9 +94,19 @@ public:
 
   void SetInputImage( const TInputImage *image ) override;
 
+  /** Get the radius required for interpolation.
+   *
+   * This defines the number of surrounding pixels required to interpolate at
+   * a given point.
+   */
+  virtual SizeType GetRadius() const override
+    {
+    return SizeType::Filled(1);
+    }
+
 protected:
   LabelImageGenericInterpolateImageFunction();
-  ~LabelImageGenericInterpolateImageFunction() override{};
+  ~LabelImageGenericInterpolateImageFunction() override= default;
 
   std::vector<typename InternalInterpolatorType::Pointer>   m_InternalInterpolators;
   std::vector<typename LabelSelectionAdaptorType::Pointer>  m_LabelSelectionAdaptors;

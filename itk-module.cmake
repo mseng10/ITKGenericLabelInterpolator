@@ -16,8 +16,8 @@ itk_module(GenericLabelInterpolator
   TEST_DEPENDS
     ITKTestKernel
     ITKImageGrid
-  EXCLUDE_FROM_DEFAULT
   DESCRIPTION
     "${DOCUMENTATION}"
+  EXCLUDE_FROM_DEFAULT
+  ENABLE_SHARED
 )
-

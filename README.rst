@@ -1,6 +1,9 @@
 ITKGenericLabelInterpolator
 ===========================
 
+.. image:: https://github.com/InsightSoftwareConsortium/ITKGenericLabelInterpolator/workflows/Build,%20test,%20package/badge.svg
+    :alt:    Build Status
+
 Overview
 --------
 

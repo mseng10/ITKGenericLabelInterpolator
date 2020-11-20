@@ -13,7 +13,7 @@ except ImportError:
 
 setup(
     name='itk-genericlabelinterpolator',
-    version='1.0.0',
+    version='1.1.0',
     author='Joël Schaerer',
     author_email='joelthelion@laposte.net',
     packages=['itk'],

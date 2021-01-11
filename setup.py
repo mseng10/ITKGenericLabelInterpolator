@@ -51,6 +51,6 @@ setup(
     keywords='ITK InsightToolkit Label-images Interpolation',
     url=r'https://github.com/InsightSoftwareConsortium/ITKGenericLabelInterpolator',
     install_requires=[
-        r'itk>=5.1.1'
+        r'itk>=5.2rc1'
     ]
     )
